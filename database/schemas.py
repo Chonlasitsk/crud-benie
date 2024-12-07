@@ -43,17 +43,26 @@ class Address(BaseModel):
     country: str
 
 class Person(Document):
-    first_name: str
-    last_name: str
-    age: int
-    email: EmailStr
-    address: Address
-    phone_numbers: List[PhoneNumber]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    age: Optional[int]
+    email: Optional[EmailStr]
+    address: Optional[Address]
+    phone_numbers: Optional[List[PhoneNumber]]
     tags: Optional[List[str]]
 
     class Settings:
         name = "persons"
+
     
 class PersonView(BaseModel):
     first_name: str
     last_name: str
+    age: int
+    
+    
+class Stock(Document):
+    name: str
+    price: int
+    class Settings:
+        name = "stocks"
